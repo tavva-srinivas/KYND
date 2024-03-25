@@ -1,0 +1,15 @@
+1) Block provider in the material app widget so all the widgets that are child can use it using
+   BlocBuilder.of<CounterCubit>(context).increment()
+--> A UNIQUE INSTANCE OF A BLOCK (block provider)
+
+2) BlockBuilder for Re-building the UI based on STATE CHANGE
+   widget <-----> cubit/block
+
+   using BlocBuilder : the builder function maybe called multiple times per state due to flutter engine
+
+   So,
+3) BLockListener : the listener is called only once per state
+
+4) BlockConsumer : Combines BlocBuilder + BlocConsumer
+
+5) RepositoryProvider : A UNIQUE INSTANCE OF REPOSITORY
