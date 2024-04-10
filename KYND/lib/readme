@@ -1,0 +1,14 @@
+Basic GetX Commands:
+GetBuilder: GetBuilder is used to update a widget's state in response to changes in a controller. It listens to changes in the specified controller and rebuilds the widget whenever the controller's state changes.
+
+GetX: GetX is a lightweight alternative to GetBuilder. It's used to listen to changes in a controller and rebuilds the widget whenever the controller's state changes. It automatically disposes itself when the widget is removed from the widget tree.
+
+Get.put: Get.put is used to register a controller globally so that it can be accessed from anywhere in the app using Get.find().
+
+Get.find: Get.find is used to retrieve a globally registered instance of a controller.
+
+Get.offAll: Get.offAll is used to navigate to a new screen and remove all previous screens from the navigation stack. It's useful for performing a full-screen replacement, such as navigating to the home screen after completing an onboarding process
+
+
+Some experiences ------------
+1) Initialization of UserProvider: You're using Get.put(User_provider()) inside the build method of your Home_Screen widget. This approach is not recommended because it will recreate the User_provider instance every time the build method is called, which can lead to unexpected behavior and performance issues. Instead, you should initialize User_provider once, preferably in a higher level widget, such as the main.dart file.
