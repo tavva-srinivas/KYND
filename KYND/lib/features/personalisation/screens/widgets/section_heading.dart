@@ -28,7 +28,7 @@ class _Custom_section_headingState extends State<Custom_section_heading> {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        if(widget.show_action_button)  TextButton(onPressed: widget.on_pressed, child: Text(widget.button_title))
+        if(widget.show_action_button)  TextButton(onPressed: widget.on_pressed, child: Text(widget.button_title,style: Theme.of(context).textTheme.bodySmall,))
       ],
     );
   }

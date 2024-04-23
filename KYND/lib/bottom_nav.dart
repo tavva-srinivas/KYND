@@ -37,7 +37,7 @@ class Bottom_nav extends StatelessWidget {
 
            destinations: const [
              NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
-             NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
+             NavigationDestination(icon: Icon(Iconsax.tag), label: 'Plan'),
              NavigationDestination(icon: Icon(Iconsax.chart), label: 'Tracking'),
              NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile')
 

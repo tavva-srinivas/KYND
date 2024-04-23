@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:kynd/features/auth/Screens/Login_screen.dart';
 import 'package:kynd/features/home/Screens/homescreen_widgets/container_curveedges.dart';
 import 'package:kynd/features/personalisation/screens/profile_screen.dart';
 import 'package:kynd/features/personalisation/screens/widgets/section_heading.dart';
 import 'package:kynd/features/personalisation/screens/widgets/settings_menu_tile.dart';
 import 'package:kynd/utils/devices_utils/device_util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class Settings_screen extends StatelessWidget {
@@ -12,6 +14,15 @@ class Settings_screen extends StatelessWidget {
   static const String route_name = "/account-settings";
 
   const Settings_screen({super.key});
+
+  Future<void> _logout(BuildContext context) async {
+    // Clear token from shared preferences
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('token');
+
+    // Navigate to login screen
+    Navigator.pushNamedAndRemoveUntil(context, Login_screen.route_name, (route) => false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +92,7 @@ class Settings_screen extends StatelessWidget {
              Expanded(
                child: SingleChildScrollView(
                  child: Padding(
-                   padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 24),
+                   padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
                    child: Column(
                      children: [
                  
@@ -91,7 +102,7 @@ class Settings_screen extends StatelessWidget {
                        const SizedBox(height: 8,),
                  
                        const Settings_menu_tile(icon: Iconsax.safe_home , title: "My Addresses", sub_title: "Set delivery addresses"),
-                       const Settings_menu_tile(icon: Iconsax.shopping_cart , title: "Whishlist", sub_title: "Add remove products and move to checkout"),
+                       const Settings_menu_tile(icon: Iconsax.heart , title: "Whishlist", sub_title: "Add remove products and move to checkout"),
                        const Settings_menu_tile(icon: Iconsax.bag_tick , title: "My orders", sub_title: "In progress and completed orders"),
                        const Settings_menu_tile(icon: Iconsax.discount_shape , title: "My Coupons", sub_title: "List of all the discounted coupons"),
                        const Settings_menu_tile(icon: Iconsax.notification , title: "Notification", sub_title: "Set any kind of notification message"),
@@ -116,7 +127,9 @@ class Settings_screen extends StatelessWidget {
                          padding: const EdgeInsets.symmetric(horizontal: 16),
                          child: SizedBox(
                            width: double.infinity,
-                           child: OutlinedButton(onPressed: (){},style: OutlinedButton.styleFrom(
+                           child: OutlinedButton(
+                             onPressed: () => _logout(context),
+                             style: OutlinedButton.styleFrom(
                              side: const BorderSide(color: Colors.red,width: 2)
                            ),child: Text("Logout",style: Theme.of(context).textTheme.headlineSmall!.apply(color: Colors.red),),),
                          ),

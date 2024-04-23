@@ -7,15 +7,6 @@ publish_to: 'none'
 
 
 
-
-
-
-
-
-
-
-
-
 version: 1.0.0+1
 
 environment:
@@ -49,10 +40,16 @@ dependencies:
   flutter_svg: ^2.0.10+1
   # saving ofline
   shared_preferences: ^2.2.2
-  #To store user ofline
-  provider: ^6.1.2
+#  #To store user ofline
+#  provider: ^6.1.2
   # carousel slider to display images
   carousel_slider: ^4.2.1
+   # for getting number on icon
+  badges: ^3.1.2
+   # for getting the dotted line to paste photo in add products
+  dotted_border: ^2.1.0
+  # for selecting file in admin
+  file_picker: ^8.0.1
 
   # Icons
   iconsax: ^0.0.8

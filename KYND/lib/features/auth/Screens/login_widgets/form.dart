@@ -70,7 +70,8 @@ class form_signincreateaccount extends StatelessWidget {
         SizedBox(width: double.infinity,child: ElevatedButton(onPressed: (){
           print("pressed on signin ${email_controller.text}");
           if(form_key.currentState!.validate()){
-            Auth_service.signin_user(context: context, email: email_controller.text, password: password_controller.text).then((value) => Navigator.pushNamedAndRemoveUntil(context,Bottom_nav.route_name, (route) => false));
+            Auth_service.signin_user(context: context, email: email_controller.text, password: password_controller.text);
+                // .then((value) => Navigator.pushNamedAndRemoveUntil(context,Bottom_nav.route_name, (route) => false));
 
           }
         },child: const Text("Sign-In"),),),

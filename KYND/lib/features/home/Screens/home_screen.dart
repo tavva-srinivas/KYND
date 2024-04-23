@@ -2,7 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kynd/features/home/Screens/homescreen_widgets/circular_container.dart';
+import 'package:kynd/utils/devices_utils/device_util.dart';
 import '../../../Getx controllers/provider.dart';
+import '../../../widgets/helper_to_product_card/Grid_layout.dart';
+import '../../../widgets/product_card_vertical.dart';
 import '../../auth/Model/user.dart';
 import 'homescreen_widgets/carousel_slider.dart';
 import 'homescreen_widgets/container_curveedges.dart';
@@ -35,8 +38,9 @@ class _Home_ScreenState extends State<Home_Screen> {
     
     return Scaffold(
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        // physics: const BouncingScrollPhysics(),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             primarycolor_container_with_curvededges(
               child: Column(
@@ -48,23 +52,23 @@ class _Home_ScreenState extends State<Home_Screen> {
                   // Seach bar
                   const home_searchbar(),
 
-                  // Categories
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Popular Categories",style: Theme.of(context).textTheme.headlineSmall!.apply(color: Colors.white),),
-                        const SizedBox(height: 10,),
-                        Row(
-                          children: [
-                            for(int i = 0;i<3;i++)
-                              const Custom_container(width: 50,height: 50,radius: 40,margin_right: 16,background_color: Colors.white,)
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                  // // Categories
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 16),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Text("Popular Categories",style: Theme.of(context).textTheme.headlineSmall!.apply(color: Colors.white),),
+                  //       const SizedBox(height: 10,),
+                  //       Row(
+                  //         children: [
+                  //           for(int i = 0;i<3;i++)
+                  //             const Custom_container(width: 50,height: 50,radius: 40,margin_right: 16,background_color: Colors.white,)
+                  //         ],
+                  //       )
+                  //     ],
+                  //   ),
+                  // ),
 
                   const SizedBox(height: 30,),
 
@@ -78,6 +82,13 @@ class _Home_ScreenState extends State<Home_Screen> {
             const corousel_slider(banners: ["assets/images/profile.jpg",
                 "assets/images/profile.jpg",
                 "assets/images/profile.jpg"]),
+
+            SizedBox(height: 24,),
+
+            gridlayout(item_count : 4,item_builder: (context,index) => Product_card_vertical(),main_axis_extent:Device_util.get_height(context)*0.365,),
+
+
+            SizedBox(height: 200,)
 
 
 
@@ -96,6 +107,4 @@ class _Home_ScreenState extends State<Home_Screen> {
     );
   }
 }
-
-
 

@@ -20,6 +20,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:kynd/admin_bottom_nav.dart';
 import 'package:kynd/features/auth/Screens/Login_screen.dart';
 import 'package:kynd/features/auth/services/auth_service.dart';
 import 'package:kynd/bottom_nav.dart';
@@ -65,9 +66,14 @@ class _Splash_screen extends State<Splash_screen> {
           // Device_util.set_status_bar_color(Custom_colors.dark);
 
           print("hello");
-          if (userProvider.user.token!.isNotEmpty) {
+          if (userProvider.user.token!.isNotEmpty && userProvider.user.type == "user" ) {
+            print("111111111111111111111111111111");
             Navigator.pushNamed(context, Bottom_nav.route_name);
-          } else {
+          } else if(userProvider.user.token!.isNotEmpty && userProvider.user.type == "admin"){
+            print("11111111111111111111111111111");
+             Navigator.pushNamed(context, Admin_bottom_nav.route_name);
+          } else{
+            print("111111111111111111111111111");
             Navigator.pushNamed(context, Login_screen.route_name);
           }
         // };

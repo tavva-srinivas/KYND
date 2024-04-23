@@ -38,6 +38,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:kynd/Getx%20controllers/provider.dart';
+import 'package:kynd/bottom_nav.dart';
+import 'package:kynd/admin_bottom_nav.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../utils/constants/text_strings.dart';
 import '../../../utils/devices_utils/device_util.dart';
@@ -114,6 +116,14 @@ class Auth_service {
 
            User_provider userProvider = Get.put(User_provider()); // Register UserProvider
            userProvider.set_user(response.body); // Set user data
+
+           if(userProvider.user.type == "user"){
+             Navigator.pushNamedAndRemoveUntil(context, Bottom_nav.route_name, (route) => false);
+           }
+           else{
+             Navigator.pushNamedAndRemoveUntil(context, Admin_bottom_nav.route_name, (route) => false);
+           }
+
 
            try {
              final bool saved = await prefs.setString("auth-token", jsonDecode(response.body)["jwt_token"]);

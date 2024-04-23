@@ -21,7 +21,7 @@ class corousel_slider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = Device_util.is_dark_mode(context);
-    final controller = Home_controller();
+    final Home_controller controller = Home_controller();
     return Stack(
       children: [
         SizedBox(

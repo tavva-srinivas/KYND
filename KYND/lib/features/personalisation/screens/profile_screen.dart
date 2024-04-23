@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:kynd/utils/appbar.dart';
+import 'package:kynd/utils/constants/colors.dart';
 
 class Profile_screen extends StatelessWidget {
   static const String route_name = "/profile";
@@ -36,11 +39,31 @@ class Profile_screen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    const SizedBox(height: 10,),
-                    const CircleAvatar(
-                      radius: 60,
-                      backgroundImage: AssetImage('assets/images/profile.jpg'), // Image asset
-                      backgroundColor: Colors.white, // Set color inside the circle
+                    const SizedBox(height: 14,),
+                    Stack(
+                      children : [
+                        const CircleAvatar(
+                        radius: 60,
+                        backgroundImage: AssetImage('assets/images/profile.jpg'), // Image asset
+                        backgroundColor: Colors.white, // Set color inside the circle
+                      ),
+                        
+                        /// edit profile option
+                        Positioned(
+                          right: 0,
+                            bottom: 0,
+                            child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    color: Custom_colors.soft_grey,
+                                     border: Border.all(color: Custom_colors.grey)
+                                  ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Center(child: Icon(Iconsax.edit,color: Custom_colors.dark_grey,)),
+                                ),)
+                        )
+                ]
                     ),
         
                     const SizedBox(height: 16,),
@@ -145,7 +168,6 @@ class Profile_screen extends StatelessWidget {
                                 if (value == null) {
                                   return 'Select your gender';
                                 }
-                                // Additional password validation logic can be added here
                                 return null;
                               },
                             ),
@@ -160,10 +182,8 @@ class Profile_screen extends StatelessWidget {
                                 child: ElevatedButton(
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
-                                      // Form is valid, perform submission logic here
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(content: Text('Form submitted successfully')),
-                                      );
+
+
                                     }
                                   },
                                   child: const Text('Save changes'),

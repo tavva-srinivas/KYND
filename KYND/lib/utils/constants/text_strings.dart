@@ -9,6 +9,6 @@ class Custom_text{
   static String board_sub_2 = "Your health our responsibilty";
   static String board_sub_3 = "Confused, Our nutritionist & doctors are always there to guide you";
 
-  static String url = "http://192.168.41.218:3000";
+  static String url = "http://192.168.232.218:3000";
 
 }

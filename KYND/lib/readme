@@ -12,3 +12,4 @@ Get.offAll: Get.offAll is used to navigate to a new screen and remove all previo
 
 Some experiences ------------
 1) Initialization of UserProvider: You're using Get.put(User_provider()) inside the build method of your Home_Screen widget. This approach is not recommended because it will recreate the User_provider instance every time the build method is called, which can lead to unexpected behavior and performance issues. Instead, you should initialize User_provider once, preferably in a higher level widget, such as the main.dart file.
+

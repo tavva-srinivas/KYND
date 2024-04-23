@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -124,6 +125,24 @@ class Device_util{
 
   static String get_formated_date(DateTime date, {String the_format = 'dd MM yyyy'}){
     return DateFormat(the_format).format(date);
+  }
+
+  static Future<List<File>> pick_image() async{
+    List<File> images = [];
+    try{
+      var selected_files = await FilePicker.platform.pickFiles(
+        type: FileType.image,
+        allowMultiple: true
+      );
+      if(selected_files != null && selected_files.files.isNotEmpty){
+        for(int i = 0;i<selected_files.files.length; i++){
+          images.add(File(selected_files.files[i].path!));
+        }
+      }
+    }catch(error){
+      print("error in pick image device util ${error}");
+    }
+    return images;
   }
 
 
