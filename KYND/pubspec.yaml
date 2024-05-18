@@ -40,7 +40,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   # saving ofline
   shared_preferences: ^2.2.2
-#  #To store user ofline
+#  #To product_review user ofline
 #  provider: ^6.1.2
   # carousel slider to display images
   carousel_slider: ^4.2.1
@@ -50,6 +50,12 @@ dependencies:
   dotted_border: ^2.1.0
   # for selecting file in admin
   file_picker: ^8.0.1
+  # for cloudinary used for images and media for app; (beter than mongodb for files)
+  cloudinary_public: ^0.23.1
+  # for lottie animations loading screen_brightness:
+  lottie: ^3.1.0
+  # for showing read more option
+  readmore: ^3.0.0
 
   # Icons
   iconsax: ^0.0.8
@@ -86,21 +92,22 @@ flutter:
     - assets/images/
     - assets/images/profile.jpg
     - assets/svgs/
+    - assets/lottie/
 
 
   # ------------------- FONTS --------------------
   fonts:
-    - family: Nunito
+    - family: Poppins
       fonts:
-         - asset: assets/fonts/Nunito-Bold.ttf
+         - asset: assets/fonts/Poppins-Bold.ttf
            weight: 700
-         - asset: assets/fonts/Nunito-SemiBold.ttf
+         - asset: assets/fonts/Poppins-SemiBold.ttf
            weight: 600
-         - asset: assets/fonts/Nunito-Medium.ttf
+         - asset: assets/fonts/Poppins-Medium.ttf
            weight: 400
-         - asset: assets/fonts/Nunito-Light.ttf
+         - asset: assets/fonts/Poppins-Light.ttf
            weight: 300
-         - asset: assets/fonts/Nunito-ExtraLight.ttf
+         - asset: assets/fonts/Poppins-ExtraLight.ttf
            weight: 200
   
   

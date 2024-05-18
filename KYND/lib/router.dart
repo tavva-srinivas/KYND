@@ -1,17 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kynd/admin_bottom_nav.dart';
-import 'package:kynd/features/admin/screens/helper_to_screens/add_product_screen.dart';
+import 'package:kynd/features/Plan/Screens/Plan_screen.dart';
 import 'package:kynd/features/auth/Screens/Login_screen.dart';
 import 'package:kynd/features/auth/Screens/Splash_screen.dart';
 import 'package:kynd/features/Onboarding/screens/Onboard_screen.dart';
 import 'package:kynd/features/auth/Screens/signup.dart';
+import 'package:kynd/features/home/Screens/categories.dart';
 import 'package:kynd/features/home/Screens/home_screen.dart';
 import 'package:kynd/features/personalisation/screens/account_settings.dart';
 import 'package:kynd/features/personalisation/screens/profile_screen.dart';
-import 'package:kynd/features/store/screens/plan_sceen.dart';
+import 'package:kynd/features/product_review/screens/product_review.dart';
+import 'package:kynd/features/search/screens/searched_screen.dart';
 
 import 'bottom_nav.dart';
 import 'features/admin/screens/helper_to_screens/add_products_screen.dart';
+import 'features/search/screens/search_screen.dart';
 
 Route<dynamic> got_to_route(RouteSettings newRoute){
   switch(newRoute.name){
@@ -33,11 +37,21 @@ Route<dynamic> got_to_route(RouteSettings newRoute){
 
     case Profile_screen.route_name : return MaterialPageRoute(builder: (newContext) => Profile_screen());
 
-    case Store_screen.route_name : return MaterialPageRoute(builder: (new_content) => Store_screen());
+    case Plan_screen.route_name : return MaterialPageRoute(builder: (new_content) => Plan_screen());
 
     case Admin_bottom_nav.route_name : return MaterialPageRoute(builder: (new_context) => Admin_bottom_nav());
 
     case Add_product_screen.route_name : return MaterialPageRoute(builder: (new_context) => Add_product_screen());
+
+    case Product_review.route_name : return MaterialPageRoute(builder: (new_context) => Product_review(product_id: newRoute.arguments as String));
+
+    case Search_screen.route_name : return MaterialPageRoute(builder: (new_context) => Search_screen());
+
+    case Searched_screen.route_name : var search_str = newRoute.arguments as String;
+      return MaterialPageRoute(builder: (new_context) => Searched_screen(search_str: search_str));
+
+    case Category_screen.route_name : var category = newRoute.arguments as String;
+      return MaterialPageRoute(builder: (new_context) => Category_screen(category: category));
 
     default: return MaterialPageRoute(builder: (newContext){
       return const Scaffold(

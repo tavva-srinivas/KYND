@@ -12,12 +12,18 @@ void http_error_handling({required http.Response res,required BuildContext conte
 
           case 500:break;
 
-          // Client error : used registered email for registration
-          case 400: Device_util.showSnackbar(context,jsonDecode(res.body)["msg"]);
-          break;
+
 
           // authentication error --> wrong password
           case 401: Device_util.showSnackbar(context,jsonDecode(res.body)["error"]);
+          break;
+
+          // Client error : used registered email for registration
+          case 400:
+
+
+          // Ading the same prduct again
+          case 409:Device_util.showSnackbar(context,jsonDecode(res.body)["msg"]);
           break;
 
           default: Device_util.showSnackbar(context, res.body);

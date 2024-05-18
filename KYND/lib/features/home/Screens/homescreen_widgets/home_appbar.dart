@@ -15,7 +15,7 @@ class home_appbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Custom_Appbar(
-      leading_icon: const Icon(Iconsax.location,color: Colors.white,size: 30,),
+      leading_icon: const Icon(Iconsax.location5,color: Colors.white,size: 30,),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

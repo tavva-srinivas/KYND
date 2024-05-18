@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kynd/features/home/Screens/categories.dart';
 import 'package:kynd/features/home/Screens/homescreen_widgets/circular_container.dart';
 import 'package:kynd/utils/devices_utils/device_util.dart';
-import '../../../Getx controllers/provider.dart';
+import '../../../Getx controllers/User_controller.dart';
 import '../../../widgets/helper_to_product_card/Grid_layout.dart';
 import '../../../widgets/product_card_vertical.dart';
 import '../../auth/Model/user.dart';
@@ -25,17 +26,19 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
-  
-  
+
+  final List<String> tags = ['Breakfast', 'Juice', 'Chocolate', 'Dinner', 'Lunch'];
+
+
   @override
   Widget build(BuildContext context) {
-    
+
     final User_provider userProvider = Get.put(User_provider());
 
     // Get the user object from the UserProvider( using get function)
     User user = userProvider.user;
 
-    
+
     return Scaffold(
       body: SingleChildScrollView(
         // physics: const BouncingScrollPhysics(),
@@ -70,13 +73,39 @@ class _Home_ScreenState extends State<Home_Screen> {
                   //   ),
                   // ),
 
-                  const SizedBox(height: 30,),
+                  const SizedBox(height: 24,),
 
                 ],
               )
             ),
 
+            /// Categories
+            SizedBox(
+              height: Device_util.get_height(context)*0.08,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: tags.length,
+                itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: GestureDetector (
+                    onTap: () {
+                      /// going to the categories screen
+                      Navigator.pushNamed(context, Category_screen.route_name,
+                          arguments: tags[index]);
+                    },
+                    child: Chip(
+                      label: Text(tags[index]),
+                      backgroundColor: Colors.indigoAccent.shade200,
+                      labelStyle: TextStyle(color: Colors.white),
+                                  ),
+                  ),
+                  );}),
+            ),
+
             const SizedBox(height: 16,),
+
+
 
             // latest and trendy deals ( for network images is_networkimage = true should be done)
             const corousel_slider(banners: ["assets/images/profile.jpg",
@@ -85,7 +114,7 @@ class _Home_ScreenState extends State<Home_Screen> {
 
             SizedBox(height: 24,),
 
-            gridlayout(item_count : 4,item_builder: (context,index) => Product_card_vertical(),main_axis_extent:Device_util.get_height(context)*0.365,),
+            gridlayout(item_count : 4,item_builder: (context,index) => Product_card_vertical(price: 1000, name: 'iphone', image: 'need to k', id:" "),main_axis_extent:Device_util.get_height(context)*0.365,),
 
 
             SizedBox(height: 200,)

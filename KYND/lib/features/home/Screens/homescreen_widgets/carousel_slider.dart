@@ -45,7 +45,7 @@ class corousel_slider extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 for(int i=0;i<banners.length;i++)
-                  Custom_container(width: 8,height:8,margin_right: 10,background_color: controller.carousel_current_index == i ? Custom_colors.primary : Custom_colors.grey ,radius: 10,),
+                  Custom_container(width: 8,height:8,margin_right:6 ,background_color: controller.carousel_current_index == i ? Custom_colors.primary : Custom_colors.grey ,radius: 10,),
               ],
             ),
           ),

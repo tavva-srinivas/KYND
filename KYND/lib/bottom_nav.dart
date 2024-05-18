@@ -33,7 +33,7 @@ class Bottom_nav extends StatelessWidget {
            selectedIndex: controller.selected_index.value,
            onDestinationSelected: (selectedTab) => controller.selected_index.value = selectedTab,
            backgroundColor: darkMode ? Custom_colors.black : Colors.white,
-           indicatorColor: darkMode  ? Custom_colors.white.withOpacity(0.1) : Custom_colors.black.withOpacity(0.1),
+           indicatorColor: darkMode  ? Custom_colors.white.withOpacity(0.1) : Colors.blueAccent.withOpacity(0.25),
 
            destinations: const [
              NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),

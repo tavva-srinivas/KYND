@@ -10,11 +10,14 @@ class gridlayout extends StatelessWidget {
     required this.item_count,
      this.main_axis_extent = null ,
     required this.item_builder,
+    this.cross_axis_count = 2
+
   });
 
   final int item_count;
   final double? main_axis_extent;
   final Widget? Function(BuildContext , int) item_builder;
+  final int cross_axis_count;
 
   @override
   Widget build(BuildContext context) {

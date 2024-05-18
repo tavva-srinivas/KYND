@@ -37,7 +37,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:kynd/Getx%20controllers/provider.dart';
+import 'package:kynd/Getx%20controllers/User_controller.dart';
 import 'package:kynd/bottom_nav.dart';
 import 'package:kynd/admin_bottom_nav.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -78,6 +78,7 @@ class Auth_service {
 
         // need to login with same credentials
         Auth_service.signin_user(context: context, email: email, password: password);
+        print("going to signin");
       });
     } catch(error) {
       Device_util.showSnackbar(context, error.toString());
@@ -123,7 +124,6 @@ class Auth_service {
            else{
              Navigator.pushNamedAndRemoveUntil(context, Admin_bottom_nav.route_name, (route) => false);
            }
-
 
            try {
              final bool saved = await prefs.setString("auth-token", jsonDecode(response.body)["jwt_token"]);

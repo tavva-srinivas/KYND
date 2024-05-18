@@ -13,6 +13,7 @@ class Custom_container extends StatelessWidget {
   final Color? background_color;
   final Widget? child;
   final border_color;
+  final double border_thickness;
 
   const Custom_container({
     super.key,
@@ -24,6 +25,7 @@ class Custom_container extends StatelessWidget {
     this.margin_right = 0,
     this.background_color = Colors.white,
     this.border_color = Colors.transparent,
+    this.border_thickness = 2,
     this.child
   });
 
@@ -40,7 +42,7 @@ class Custom_container extends StatelessWidget {
             borderRadius: BorderRadius.circular(radius),
           border: Border.all(
               color: border_color, // Border color
-              width: 2.0, // Border thickness
+              width: border_thickness, // Border thickness
             ),
             color: background_color,
           // color: Colors.redAccent.shade200,

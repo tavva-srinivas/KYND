@@ -26,7 +26,7 @@ import 'package:kynd/features/auth/services/auth_service.dart';
 import 'package:kynd/bottom_nav.dart';
 import 'package:kynd/utils/devices_utils/device_util.dart';
 
-import '../../../Getx controllers/provider.dart';
+import '../../../Getx controllers/User_controller.dart';
 
 
 // Splash_screen
@@ -44,12 +44,13 @@ class _Splash_screen extends State<Splash_screen> {
   void initState() {
     super.initState();
 
-
+    print("reching to splash screen");
     Auth_service.get_user_data(context: context).then((value) {
-      print("reching to splash screen");
+
       User_provider userProvider = Get.find<User_provider>();
       print("reching to splash screen ${userProvider.user.toJson()}");
     try {
+      print("inside the try in splash");
       Future.delayed( const Duration(milliseconds: 10), () {
 
         print("the token is ${userProvider.user.token}");
