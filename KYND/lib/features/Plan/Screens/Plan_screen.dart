@@ -11,30 +11,24 @@ class Plan_screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Zomato-like Food Card')),
-      body: ListView(
+      body:  ListView(
         children: [
-          FoodCard(
-            imageUrl: 'https://via.placeholder.com/400',
-            name: 'The Best Restaurant',
+          Hor_plan_card(
+            id: '1',
+            name: 'High Protein',
             rating: 4.5,
-            cuisine: 'Italian',
-            priceRange: '₹₹₹',
-            location: '123 Main St',
-          ),
-          FoodCard(
-            imageUrl: 'https://via.placeholder.com/400',
-            name: 'Another Restaurant',
-            rating: 4.0,
-            cuisine: 'Chinese',
-            priceRange: '₹₹',
-            location: '456 Elm St',
+            mealTime: 'Breakfast',
+            price: '₹₹₹',
+            images: ["assets/images/breakfast.jpg","assets/images/breakfast.jpg","assets/images/breakfast.jpg"],
+            is_veg: true,
+            // images: ['https://res.cloudinary.com/dczkxl7th/image/upload/v1715357133/1/oj51umownyl4gox1phkz.jpg','https://res.cloudinary.com/dczkxl7th/image/upload/v1715357133/1/oj51umownyl4gox1phkz.jpg','https://res.cloudinary.com/dczkxl7th/image/upload/v1715357133/1/oj51umownyl4gox1phkz.jpg','https://res.cloudinary.com/dczkxl7th/image/upload/v1715357133/1/oj51umownyl4gox1phkz.jpg','https://res.cloudinary.com/dczkxl7th/image/upload/v1715357133/1/oj51umownyl4gox1phkz.jpg'],
           ),
         ],
       ),
     );
   }
 }
+
 //       Scaffold(
 //         appBar: Custom_Appbar(
 //           title: Padding(

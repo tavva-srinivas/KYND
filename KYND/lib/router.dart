@@ -10,11 +10,13 @@ import 'package:kynd/features/home/Screens/categories.dart';
 import 'package:kynd/features/home/Screens/home_screen.dart';
 import 'package:kynd/features/personalisation/screens/account_settings.dart';
 import 'package:kynd/features/personalisation/screens/profile_screen.dart';
-import 'package:kynd/features/product_review/screens/product_review.dart';
+import 'package:kynd/features/product/screens/plan_days_screen.dart';
+import 'package:kynd/features/product/screens/product_detail_screen.dart';
 import 'package:kynd/features/search/screens/searched_screen.dart';
 
 import 'bottom_nav.dart';
 import 'features/admin/screens/helper_to_screens/add_products_screen.dart';
+import 'features/product/screens/product_review.dart';
 import 'features/search/screens/search_screen.dart';
 
 Route<dynamic> got_to_route(RouteSettings newRoute){
@@ -45,7 +47,12 @@ Route<dynamic> got_to_route(RouteSettings newRoute){
 
     case Product_review.route_name : return MaterialPageRoute(builder: (new_context) => Product_review(product_id: newRoute.arguments as String));
 
+    case Plan_days_screen.route_name : return MaterialPageRoute(builder: (new_context) =>  Plan_days_screen());
+
     case Search_screen.route_name : return MaterialPageRoute(builder: (new_context) => Search_screen());
+
+    case Product_detail.route_name : var product_id = newRoute.arguments as String;
+      return MaterialPageRoute(builder: (new_context) => Product_detail(product_id: product_id));
 
     case Searched_screen.route_name : var search_str = newRoute.arguments as String;
       return MaterialPageRoute(builder: (new_context) => Searched_screen(search_str: search_str));

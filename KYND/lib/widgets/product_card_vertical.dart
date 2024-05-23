@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:kynd/features/home/Screens/homescreen_widgets/circular_container.dart';
-import 'package:kynd/features/product_review/screens/product_review.dart';
+import 'package:kynd/features/product/screens/product_review.dart';
 import 'package:kynd/utils/devices_utils/device_util.dart';
 import 'package:kynd/widgets/helper_to_product_card/shadow_product_card.dart';
 
+import '../features/admin/models/product.dart';
 import '../features/admin/screens/helper_to_screens/product_details.dart';
 import '../features/admin/screens/helper_to_screens/rupee_price.dart';
 import '../utils/constants/colors.dart';
@@ -30,9 +31,9 @@ class Product_card_vertical extends StatelessWidget {
   final bool has_like;
   final int discount;
   final IconData icon;
+  final String image;
   final String name;
   final int price;
-  final String image;
   final String id;
   // final VoidCallback ontap;
 

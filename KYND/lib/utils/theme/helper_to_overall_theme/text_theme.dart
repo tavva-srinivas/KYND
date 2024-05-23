@@ -17,9 +17,9 @@ class Custom_Text_Theme{
     titleMedium: const TextStyle().copyWith(fontSize: 17,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.8)),
     titleSmall: const TextStyle().copyWith(fontSize: 15,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.4)),
 
-      bodyLarge: const TextStyle().copyWith(fontSize: 16,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.65)),
-      bodyMedium: const TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.bold,color: Custom_colors.dark.withOpacity(0.7)),
-      bodySmall: const TextStyle().copyWith(fontSize: 13,fontWeight: FontWeight.bold,color: Custom_colors.dark.withOpacity(0.65)),
+      bodyLarge: const TextStyle().copyWith(fontSize: 17,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.6)),
+      bodyMedium: const TextStyle().copyWith(fontSize: 15,fontWeight: FontWeight.bold,color: Custom_colors.dark.withOpacity(0.6)),
+      bodySmall: const TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.bold,color: Custom_colors.dark.withOpacity(0.6)),
 
       labelLarge: const TextStyle().copyWith(fontSize: 16,fontWeight: FontWeight.normal,color: Custom_colors.dark),
       labelMedium: const TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.normal,color: Custom_colors.dark.withOpacity(0.6)),

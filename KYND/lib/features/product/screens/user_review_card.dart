@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kynd/features/home/Screens/homescreen_widgets/circular_container.dart';
-import 'package:kynd/features/product_review/screens/helping_widgets/Rating_stars.dart';
 import 'package:kynd/utils/constants/colors.dart';
 import 'package:kynd/utils/devices_utils/device_util.dart';
 import 'package:readmore/readmore.dart';
+
+import 'helping_widgets/Rating_stars.dart';
 
 class User_review_card extends StatelessWidget {
   const User_review_card({super.key});

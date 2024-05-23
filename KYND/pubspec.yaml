@@ -40,7 +40,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   # saving ofline
   shared_preferences: ^2.2.2
-#  #To product_review user ofline
+#  #To product user ofline
 #  provider: ^6.1.2
   # carousel slider to display images
   carousel_slider: ^4.2.1
