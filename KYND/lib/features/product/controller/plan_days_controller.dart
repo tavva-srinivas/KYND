@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-class ListController extends GetxController {
+class Plan_days_controller extends GetxController {
   RxList<String> items;
 
-  ListController(List<String> initialItems) : items = initialItems.obs;
+  Plan_days_controller(List<String> initialItems) : items = initialItems.obs;
 
   void reorder(int oldIndex, int newIndex) {
     if (newIndex > oldIndex) {

@@ -25,7 +25,9 @@ if (flutterVersionName == null) {
 android {
     namespace "com.example.kynd"
     compileSdk flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+//    ### changing the ndk version as a plugin require higher ndk version
+//    ndkVersion flutter.ndkVersion
+    ndkVersion "26.3.11579264"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -45,7 +47,8 @@ android {
         applicationId "com.example.kynd"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+//        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -58,10 +61,23 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    // added this block to forcefully use the given version
+//    configurations.all {
+//        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//            if (details.requested.group == 'org.jetbrains.kotlin') {
+//                details.useVersion '1.9.0' // or '1.9.0' to match your chosen version
+//            }
+//        }
+//    }
+
 }
 
 flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+//    added to get the latest kotlin version
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}

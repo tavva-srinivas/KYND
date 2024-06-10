@@ -68,14 +68,14 @@ class _Splash_screen extends State<Splash_screen> {
 
           print("hello");
           if (userProvider.user.token!.isNotEmpty && userProvider.user.type == "user" ) {
-            print("111111111111111111111111111111");
-            Navigator.pushNamed(context, Bottom_nav.route_name);
+            print("11111111111111111");
+            Navigator.pushNamedAndRemoveUntil(context, Bottom_nav.route_name,  (route) => false);
           } else if(userProvider.user.token!.isNotEmpty && userProvider.user.type == "admin"){
             print("11111111111111111111111111111");
-             Navigator.pushNamed(context, Admin_bottom_nav.route_name);
+             Navigator.pushNamedAndRemoveUntil(context, Admin_bottom_nav.route_name, (route) => false);
           } else{
             print("111111111111111111111111111");
-            Navigator.pushNamed(context, Login_screen.route_name);
+            Navigator.pushNamedAndRemoveUntil(context, Login_screen.route_name, (route) => false);
           }
         // };
       });

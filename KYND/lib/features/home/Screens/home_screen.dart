@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:kynd/features/home/Screens/categories.dart';
 import 'package:kynd/features/home/Screens/homescreen_widgets/circular_container.dart';
 import 'package:kynd/utils/devices_utils/device_util.dart';
@@ -12,6 +13,8 @@ import 'homescreen_widgets/carousel_slider.dart';
 import 'homescreen_widgets/container_curveedges.dart';
 import 'homescreen_widgets/home_appbar.dart';
 import 'homescreen_widgets/home_searchbar.dart';
+import 'package:badges/badges.dart' as badges;
+
 
 
 
@@ -50,7 +53,22 @@ class _Home_ScreenState extends State<Home_Screen> {
                 children: [
 
                   // App bar
-                  const home_appbar(),
+                   home_appbar(
+                    icons : [
+                      IconButton(
+                        onPressed: (){},
+                        icon: const badges.Badge(
+                          badgeContent: Text('12', style: TextStyle(fontSize: 14),),
+                          badgeStyle: badges.BadgeStyle(badgeColor: Colors.white, padding: EdgeInsets.all(1)),
+                          child: Icon(Iconsax.notification, color: Colors.white, size: 24,), // Change here
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: (){},
+                        icon: Icon(Iconsax.note, color: Colors.white, size: 24,), // Change here
+                      ),
+                    ],
+                  ),
 
                   // Seach bar
                   const home_searchbar(),

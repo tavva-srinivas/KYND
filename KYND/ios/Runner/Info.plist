@@ -47,5 +47,10 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>We want permision for product images!</string>
+
+
+    <string>NSLocationWhenInUseUsageDescription</string>
+    <key>To display location on map</key>
+
 </dict>
 </plist>

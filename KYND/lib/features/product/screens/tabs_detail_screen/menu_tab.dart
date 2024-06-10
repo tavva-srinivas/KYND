@@ -37,14 +37,14 @@ class MenuItem extends StatelessWidget {
           flex: 4,
           child: Text(
             name,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
         Expanded(
           flex: 1,
           child: Text(
             quantity,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ],

@@ -1,4 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    for location permission-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="kynd"
@@ -30,6 +34,22 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+<!--        for google maps api-->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDoHT2KBdY8UHnb4BsJLqqrRP62BVeymkU"/>
+
+
+
+
+        <!--For phonepay integration -->
+<!--        <meta-data android:name="com.phonepe.android.sdk.isUAT" android:value="true"/>-->
+<!--        <meta-data android:name="com.phonepe.android.sdk.isSimulator" android:value="true"/>-->
+<!--        <meta-data android:name="com.phonepe.android.sdk.MerchantId" android:value="PGTESTPAYUAT"/>-->
+<!--        <meta-data android:name="com.phonepe.android.sdk.AppId" android:value="appId"/>-->
+<!--this is made false for testing mode, for production mode it should be changed-->
+
+
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility?hl=en and

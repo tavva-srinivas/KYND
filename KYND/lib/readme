@@ -1,13 +1,84 @@
-Basic GetX Commands:
-GetBuilder: GetBuilder is used to update a widget's state in response to changes in a controller. It listens to changes in the specified controller and rebuilds the widget whenever the controller's state changes.
+# Basic GetX Commands
 
-GetX: GetX is a lightweight alternative to GetBuilder. It's used to listen to changes in a controller and rebuilds the widget whenever the controller's state changes. It automatically disposes itself when the widget is removed from the widget tree.
+### GetBuilder
+`GetBuilder` is used to update a widget's state in response to changes in a controller. It listens to changes in the specified controller and rebuilds the widget whenever the controller's state changes.
 
-Get.put: Get.put is used to register a controller globally so that it can be accessed from anywhere in the app using Get.find().
+### GetX
+`GetX` is a lightweight alternative to `GetBuilder`. It's used to listen to changes in a controller and rebuilds the widget whenever the controller's state changes. It automatically disposes itself when the widget is removed from the widget tree.
 
-Get.find: Get.find is used to retrieve a globally registered instance of a controller.
+### Get.put
+`Get.put` is used to register a controller globally so that it can be accessed from anywhere in the app using `Get.find()`.
 
-Get.offAll: Get.offAll is used to navigate to a new screen and remove all previous screens from the navigation stack. It's useful for performing a full-screen replacement, such as navigating to the home screen after completing an onboarding process
+### Get.find
+`Get.find` is used to retrieve a globally registered instance of a controller.
+
+### Get.offAll
+`Get.offAll` is used to navigate to a new screen and remove all previous screens from the navigation stack. It's useful for performing a full-screen replacement, such as navigating to the home screen after completing an onboarding process.
+
+---
+
+# Some Experiences
+
+### Initialization of UserProvider
+You're using `Get.put(User_provider())` inside the build method of your `Home_Screen` widget. This approach is not recommended because it will recreate the `User_provider` instance every time the build method is called, which can lead to unexpected behavior and performance issues. Instead, you should initialize `User_provider` once, preferably in a higher-level widget, such as the `main.dart` file.
+
+---
+
+# When the Factory Constructor Can Return Existing Instances
+
+If you modify the factory constructor to include logic for returning existing instances (like a cache), it might return the same instance for certain conditions. Here's an example of such logic:
+
+```dart
+class Product_summary {
+  final String id;
+  final String name;
+
+  // Private constructor
+  Product_summary._internal({required this.id, required this.name});
+
+  // Static cache to store instances
+  static final Map<String, Product_summary> _cache = {};
+
+  // Factory constructor with caching logic
+  factory Product_summary.from_json(Map<String, dynamic> json) {
+    final id = json['_id'];
+    if (_cache.containsKey(id)) {
+      return _cache[id]!;
+    } else {
+      final instance = Product_summary._internal(
+        id: id,
+        name: json['name'],
+      );
+      _cache[id] = instance;
+      return instance;
+    }
+  }
+}
+
+void main() {
+  // First JSON object
+  Map<String, dynamic> json1 = {
+    '_id': '123',
+    'name': 'Product 1'
+  };
+
+  // Another JSON object with the same id as json1
+  Map<String, dynamic> json3 = {
+    '_id': '123',
+    'name': 'Updated Product 1'
+  };
+
+  // Create instances using the factory constructor
+  Product_summary product1 = Product_summary.from_json(json1);
+  Product_summary product3 = Product_summary.from_json(json3);
+
+  // Print the product details
+  print('Product 1 ID: ${product1.id}, Name: ${product1.name}');
+  print('Product 3 ID: ${product3.id}, Name: ${product3.name}');
+
+  // Check if they are the same instance
+  print(identical(product1, product3)); // true, they are the same instance
+}
 
 
 Some experiences ------------
@@ -83,3 +154,7 @@ In this modified example, if you call the factory constructor with the same id, 
 
 
 #######################################################
+
+what exactly is the difference between const and final keywords
+1) const values are compile-time constants.
+2) final values are run-time constants.

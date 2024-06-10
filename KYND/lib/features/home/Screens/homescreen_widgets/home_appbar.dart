@@ -8,31 +8,38 @@ import 'notification_icon.dart';
 
 
 class home_appbar extends StatelessWidget {
+  final Color heading_color;
+  final Color subHead_color;
+  final Color icon_color;
+  final List<Widget> icons;
+  final Color? icon_backgrund;
+
   const home_appbar({
-    super.key,
-  });
+    Key? key,
+    this.heading_color = Colors.white,
+    this.subHead_color = Custom_colors.grey,
+     this.icon_color = Colors.white,
+    this.icon_backgrund,
+    this.icons = const [],
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Custom_Appbar(
-      leading_icon: const Icon(Iconsax.location5,color: Colors.white,size: 30,),
+      icon_background: icon_backgrund,
+      leading_icon:  Icon(Iconsax.location5, size: 30,color: icon_color,),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Moghalrajpuram",style: Theme.of(context).textTheme.headlineMedium?.apply(
-              color: Colors.white
+              color: heading_color
           )),
           Text("Suryaraopet Vijayawada",style: Theme.of(context).textTheme.bodyMedium?.apply(
-              color: Custom_colors.grey
+              color: subHead_color
           ),)
         ],
       ),
-      actions: [
-        IconButton(onPressed: (){}, icon: badges.Badge(badgeContent : Text('12',style: TextStyle(fontSize: 14),),badgeStyle:badges.BadgeStyle(badgeColor: Colors.white,padding: EdgeInsets.all(1)),child: const Icon(Iconsax.notification,color: Colors.white,size: 24,))),
-        IconButton(onPressed: (){}, icon: const Icon(Iconsax.note,color: Colors.white,size: 24,))
-      ],
+      actions: icons
     );
   }
 }
-
-

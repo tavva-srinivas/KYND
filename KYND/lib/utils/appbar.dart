@@ -8,6 +8,7 @@ class Custom_Appbar extends StatelessWidget implements PreferredSizeWidget{
   const Custom_Appbar({super.key,
     this.title,
     this.show_backarrow = false,
+    this.icon_background = null,
     this.leading_icon,
     this.actions,
     this.leading_onPressed,
@@ -24,6 +25,7 @@ class Custom_Appbar extends StatelessWidget implements PreferredSizeWidget{
   final Color? back_color;
   final Color? arrow_color;
   final bool? has_center_title;
+  final Color? icon_background;
 
 
   @override
@@ -36,7 +38,9 @@ class Custom_Appbar extends StatelessWidget implements PreferredSizeWidget{
         centerTitle: has_center_title,
         titleSpacing: 0,
         automaticallyImplyLeading: false,
-        leading: show_backarrow ? IconButton(onPressed: () => Get.back(), icon: arrow_color == Colors.white ? Icon(Iconsax.arrow_left , color: Colors.white,) : Icon(Iconsax.arrow_left) ) : leading_icon != null ? IconButton(onPressed: leading_onPressed, icon:leading_icon!) : null,
+        leading: show_backarrow ? IconButton(onPressed: () => Get.back(), icon: arrow_color == Colors.white ? Icon(Iconsax.arrow_left , color: Colors.white) : Icon(Iconsax.arrow_left) ) : leading_icon != null ? Center(child: icon_background != null ?
+         CircleAvatar(radius: 24,backgroundColor: icon_background, child: IconButton(onPressed: leading_onPressed, icon:leading_icon!,iconSize:14 ,)) : IconButton(onPressed: leading_onPressed, icon:leading_icon!,iconSize:16 ,)
+        ) : null,
         title: title,
         actions : actions,
 

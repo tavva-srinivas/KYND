@@ -1,7 +1,9 @@
 allprojects {
+    ext.kotlin_version = '1.9.0' // Update this to the latest Kotlin version
     repositories {
         google()
         mavenCentral()
+
     }
 }
 

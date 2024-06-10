@@ -17,7 +17,7 @@ class Navigation_controller extends GetxController{
   //  observed "obs"(observed)  has "obx"(observer) inside it so whenver the obs is changed the obx is also changed
 
 
-  final screens = [const Home_Screen(),Plan_screen(),Plan_days_screen(),const Settings_screen()];
+  final screens = [const Home_Screen(),Plan_screen(),Tracking_screen(),const Settings_screen()];
 
 }
 

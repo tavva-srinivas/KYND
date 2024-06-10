@@ -79,7 +79,7 @@ class _Search_screenState extends State<Search_screen> {
             },
             decoration: InputDecoration(
               hintText: 'Search',
-              hintStyle: Theme.of(context).textTheme.bodyText2,
+              hintStyle: Theme.of(context).textTheme.bodyMedium,
               prefixIcon: Icon(Icons.search, color: Colors.indigoAccent),
               suffixIcon: IconButton(
                 icon: Icon(Icons.clear_rounded, color: Colors.grey),
