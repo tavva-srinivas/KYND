@@ -30,12 +30,13 @@ class Searched_screen extends StatelessWidget {
               contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10), // Adjust padding
             ),
             onTap: (){
-              // Navigator.
+              // Navigator.  
             },
 
           ),
         ),
       ),
+
       body: Center(
         child: Text('Search results for "$search_str" will be displayed here.'),
       ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kynd/features/home/Screens/home_screen.dart';
 
+import '../../../bottom_nav.dart';
+
 class Onboarding_controller extends GetxController {
  // from the onboard_screen (this controller is created in the onboard_screen)
   static Onboarding_controller get instance => Get.find();
@@ -32,7 +34,10 @@ class Onboarding_controller extends GetxController {
    void next_page(){
      print("current_page_index  $current_page_index");
       if(current_page_index == 2){
-        Get.offAll(const Home_Screen());
+        // Get.offAll(const Home_Screen());
+        Get.offAll(Bottom_nav());
+        // Navigator.pushNamedAndRemoveUntil(context, Bottom_nav.route_name,  (route) => false);
+
       }else{
         current_page_index.value++;
         page_controller.jumpToPage(current_page_index.value);

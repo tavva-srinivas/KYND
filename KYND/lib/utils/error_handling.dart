@@ -7,8 +7,10 @@ import 'package:kynd/utils/devices_utils/device_util.dart';
 // fun() --> positional arguments
 // fun({}) --> named arguments as well as default arguments can ke kept
 void http_error_handling({required http.Response res,required BuildContext context,required VoidCallback on_success}){
+
      switch(res.statusCode){
-          case 200: on_success(); break;
+          case 200:  print("response in http ${res.statusCode}");
+               on_success(); break;
 
           case 500:break;
 
@@ -19,7 +21,8 @@ void http_error_handling({required http.Response res,required BuildContext conte
           break;
 
           // Client error : used registered email for registration
-          case 400:
+          case 400:  Device_util.showSnackbar(context, jsonDecode(res.body)["msg"]);
+          break;
 
 
           // Ading the same prduct again

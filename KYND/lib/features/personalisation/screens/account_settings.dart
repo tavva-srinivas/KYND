@@ -62,7 +62,11 @@ class Settings_screen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text("Tavva Srinivas",style: Theme.of(context).textTheme.headlineMedium!.apply(color: Colors.white),maxLines: 1,overflow: TextOverflow.ellipsis,),
-                              Text("we_are_kind@gmail.com",style: Theme.of(context).textTheme.bodySmall!.apply(color: Colors.white.withOpacity(0.8)),)
+                              Text("we_are_kind@gmail.com",style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                color: Colors.white.withOpacity(0.8),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400, // Lighter font weight
+                              ),)
                             ],
                           ),
                         ),

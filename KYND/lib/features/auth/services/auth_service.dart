@@ -43,7 +43,8 @@ import 'package:kynd/admin_bottom_nav.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../utils/constants/text_strings.dart';
 import '../../../utils/devices_utils/device_util.dart';
-import '../../../utils/error_handling.dart'; // Import dart:convert library
+import '../../../utils/error_handling.dart';
+import '../../Onboarding/screens/Onboard_screen.dart'; // Import dart:convert library
 
 class Auth_service {
 
@@ -70,14 +71,16 @@ class Auth_service {
         headers: {"Content-Type":"application/json"},
       );
 
-      print(response.statusCode);
+      print({"resposnse in signup ${response.statusCode}"});
 
-      print("reaching here");
+      // print("reaching here");
       http_error_handling(res: response, context: context, on_success: (){
         Device_util.showSnackbar(context, "Account created!");
+        Navigator.pushNamed(context, Onboarding_screen.route_name);
+
 
         // need to login with same credentials
-        Auth_service.signin_user(context: context, email: email, password: password);
+        // Auth_service.signin_user(context: context, email: email, password: password);
         print("going to signin");
       });
     } catch(error) {
@@ -145,10 +148,14 @@ class Auth_service {
 
    static Future<void> get_user_data ({required BuildContext context}) async {
     try {
+      print("comming to get user data");
        SharedPreferences preferences = await SharedPreferences.getInstance();
+       print("after waiting for shared preferences initialisation");
        String? token = preferences.getString('auth-token');
 
+
        if(token == null) {
+         print("token is null");
          preferences.setString('auth-token', '');
        }
 

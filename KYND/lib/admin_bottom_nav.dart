@@ -23,25 +23,32 @@ class Admin_bottom_nav extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Obx(
         // this syntax is like Navigation bar is the child of Obx
-            () => NavigationBar(
-              height: 80,
-                elevation: 0,
-                // as selected integer is a ""Rx"" type so to get the integer value we are using "".value""
-                selectedIndex: controller.selected_index.value,
-                onDestinationSelected: (selectedTab) => controller.selected_index.value = selectedTab,
-                backgroundColor: darkMode ? Custom_colors.black : Colors.white,
-                // indicatorColor: darkMode  ? Custom_colors.white.withOpacity(0.1) : Custom_colors.black.withOpacity(0.1),
-              indicatorColor: darkMode  ? Custom_colors.white.withOpacity(0.1) : Colors.blueAccent.withOpacity(0.25),
+            () => NavigationBarTheme(
+              data: NavigationBarThemeData(
+                labelTextStyle: WidgetStateProperty.all(
+                  TextStyle(fontSize: 10,color:Colors.black87,fontWeight: FontWeight.w400),
+                ),
+              ),
+              child: NavigationBar(
+                height: 80,
+                  elevation: 0,
+                  // as selected integer is a ""Rx"" type so to get the integer value we are using "".value""
+                  selectedIndex: controller.selected_index.value,
+                  onDestinationSelected: (selectedTab) => controller.selected_index.value = selectedTab,
+                  backgroundColor: darkMode ? Custom_colors.black : Colors.white,
+                  // indicatorColor: darkMode  ? Custom_colors.white.withOpacity(0.1) : Custom_colors.black.withOpacity(0.1),
+                indicatorColor: darkMode  ? Custom_colors.white.withOpacity(0.1) : Colors.blueAccent.withOpacity(0.25),
 
-                destinations: const [
-                  NavigationDestination(icon: Icon(Iconsax.home), label: 'My products'),
-                  NavigationDestination(icon: Icon(Iconsax.tag), label: 'Orders'),
-                  NavigationDestination(icon: Icon(Iconsax.chart), label: 'Analytics'),
-                  // NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile')
+                  destinations: const [
+                    NavigationDestination(selectedIcon: Icon(Icons.home), label: 'My products',icon: Icon(Icons.home_outlined),),
+                    NavigationDestination(selectedIcon: Icon(Iconsax.tag5), label: 'Orders',icon: Icon(Iconsax.tag),),
+                    NavigationDestination(selectedIcon: Icon(Iconsax.chart5),icon: Icon(Iconsax.chart), label: 'Analytics'),
+                    // NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile')
 
-          ],
+                        ],
 
-        ),
+                      ),
+            ),
       ),
       body: Obx(() => controller.screens[controller.selected_index.value]) ,
     );

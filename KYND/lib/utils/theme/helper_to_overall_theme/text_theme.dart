@@ -9,21 +9,21 @@ class Custom_Text_Theme{
 
   static TextTheme light_text_theme = TextTheme(
     // Instead of writing from scratch we going to change the default parameters
-    headlineLarge: const TextStyle().copyWith(fontSize: 26,fontWeight: FontWeight.w600,color: Custom_colors.dark),
-    headlineMedium: const TextStyle().copyWith(fontSize: 21,fontWeight: FontWeight.w600,color: Custom_colors.dark),
-    headlineSmall: const TextStyle().copyWith(fontSize: 19,fontWeight: FontWeight.bold,color: Custom_colors.dark),
+    headlineLarge: const TextStyle().copyWith(fontSize: 26,fontWeight: FontWeight.w600,color: Custom_colors.dark,fontFamily: 'Poppins'),
+    headlineMedium: const TextStyle().copyWith(fontSize: 21,fontWeight: FontWeight.w600,color: Custom_colors.dark,fontFamily: 'Poppins'),
+    headlineSmall: const TextStyle().copyWith(fontSize: 19,fontWeight: FontWeight.bold,color: Custom_colors.dark,fontFamily: 'Poppins'),
 
-    titleLarge: const TextStyle().copyWith(fontSize: 19,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.8)),
-    titleMedium: const TextStyle().copyWith(fontSize: 17,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.8)),
-    titleSmall: const TextStyle().copyWith(fontSize: 15,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.8)),
+    titleLarge: const TextStyle().copyWith(fontSize: 19,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.8),fontFamily: 'Poppins'),
+    titleMedium: const TextStyle().copyWith(fontSize: 17,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.8),fontFamily: 'Poppins'),
+    titleSmall: const TextStyle().copyWith(fontSize: 15,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.8),fontFamily: 'Poppins'),
 
-      bodyLarge: const TextStyle().copyWith(fontSize: 17,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.6)),
-      bodyMedium: const TextStyle().copyWith(fontSize: 15,fontWeight: FontWeight.bold,color: Custom_colors.dark.withOpacity(0.6)),
-      bodySmall: const TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.bold,color: Custom_colors.dark.withOpacity(0.6)),
+      bodyLarge: const TextStyle().copyWith(fontSize: 17,fontWeight: FontWeight.w600,color: Custom_colors.dark.withOpacity(0.6),fontFamily: 'Poppins'),
+      bodyMedium: const TextStyle().copyWith(fontSize: 15,fontWeight: FontWeight.bold,color: Custom_colors.dark.withOpacity(0.6),fontFamily: 'Poppins'),
+      bodySmall: const TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.bold,color: Custom_colors.dark.withOpacity(0.6),fontFamily: 'Poppins'),
 
-      labelLarge: const TextStyle().copyWith(fontSize: 18,fontWeight: FontWeight.normal,color: Custom_colors.dark,wordSpacing: 1.5),
-      labelMedium: const TextStyle().copyWith(fontSize: 16,fontWeight: FontWeight.normal,color: Custom_colors.dark.withOpacity(0.6)),
-      labelSmall: const TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.normal,color: Custom_colors.dark.withOpacity(0.6))
+      labelLarge: const TextStyle().copyWith(fontSize: 18,fontWeight: FontWeight.normal,color: Custom_colors.dark,wordSpacing: 1.5,fontFamily: 'Poppins'),
+      labelMedium: const TextStyle().copyWith(fontSize: 16,fontWeight: FontWeight.normal,color: Custom_colors.dark.withOpacity(0.8),fontFamily: 'Poppins'),
+      labelSmall: const TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.normal,color: Custom_colors.dark.withOpacity(0.8),fontFamily: 'Poppins')
 
 
   );

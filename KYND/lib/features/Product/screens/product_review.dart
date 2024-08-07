@@ -9,7 +9,7 @@ import 'helping_widgets/Rating_stars.dart';
 import 'helping_widgets/overall_review.dart';
 
 class Product_review extends StatefulWidget {
-  static const String route_name = '/product';
+  static const String route_name = '/Product';
   const Product_review({super.key, required this.product_id});
 
   final String product_id;

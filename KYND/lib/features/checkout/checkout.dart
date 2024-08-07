@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kynd/features/checkout/checkout_tabs/Time_selection.dart';
+import 'package:kynd/features/checkout/checkout_tabs/payments_page.dart';
 
 import 'checkout_tabs/location.dart';
 import 'controllers/checkout_controller.dart';
@@ -13,6 +15,7 @@ class CheckoutScreen extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Colors.white,
           leading: IconButton(
             icon: Icon(
@@ -27,7 +30,8 @@ class CheckoutScreen extends StatelessWidget {
           elevation: 0,
           title: Text(
             "Checkout",
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headlineSmall,
+            textAlign: TextAlign.center,
           ),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(36),
@@ -39,7 +43,7 @@ class CheckoutScreen extends StatelessWidget {
               dividerColor: Colors.deepOrangeAccent,
               onTap: (index) => {checkoutController.prevTab(index)},
               controller: checkoutController.tabController,
-              physics: NeverScrollableScrollPhysics(), // Disable user interaction
+              physics: const NeverScrollableScrollPhysics(), // Disable user interaction
               unselectedLabelColor: Colors.redAccent,
               labelColor: Colors.white,
               indicatorSize: TabBarIndicatorSize.tab,
@@ -69,8 +73,8 @@ class CheckoutScreen extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(), // Disable swiping
             children: [
               Location_capture(),
-              Center(child: Icon(Icons.movie)),
-              Center(child: Icon(Icons.games)),
+              Time_selection(),
+              Payments_screen(),
             ],
           )
         // If you want to add the floating action button logic later, you can add it here.
@@ -78,3 +82,5 @@ class CheckoutScreen extends StatelessWidget {
     );
   }
 }
+
+

@@ -51,7 +51,8 @@ class _Splash_screen extends State<Splash_screen> {
       print("reching to splash screen ${userProvider.user.toJson()}");
     try {
       print("inside the try in splash");
-      Future.delayed( const Duration(milliseconds: 10), () {
+      Future.delayed( const Duration(milliseconds: 1), () {
+        Device_util.set_full_screen(false);
 
         print("the token is ${userProvider.user.token}");
 

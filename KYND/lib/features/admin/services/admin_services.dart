@@ -41,7 +41,7 @@ class Admin_services{
        List<String> image_urls = [];
        print("the images length ${images.length} and ${name}");
 
-       /// for checking if the person added the same product
+       /// for checking if the person added the same Product
        http.Response response = await http.post(Uri.parse("${Custom_text.url}/admin/check_product"),
          headers: {"Content-Type":"application/json",
            "auth-token" : user_provider.user.token!
@@ -53,23 +53,28 @@ class Admin_services{
        print("the status code ${response.statusCode}");
        print(response.body);
 
-       // this means that he is not adding the product again
+       // this means that he is not adding the Product again
        http_error_handling(res: response, context: context, on_success: () async{
-         print("the product is new");
+         print("the Product is new");
          for (int i = 0; i < images.length; i++) {
            print(images[i].path);
-           CloudinaryResponse response = await cloudinary.uploadFile(
-               CloudinaryFile.fromFile(
-                   images[i].path, resourceType: CloudinaryResourceType.Image,
-                   folder: name));
-           print("the image is ${response}");
-           image_urls.add(response.secureUrl);
+                 try{
+                   CloudinaryResponse response = await cloudinary.uploadFile(
+                       CloudinaryFile.fromFile(
+                           images[i].path, resourceType: CloudinaryResourceType.Image,
+                           folder: name));
+                   print("the image is ${response}");
+                   image_urls.add(response.secureUrl);
+                 }catch(error){
+                   print("error ${error}");
+                 }
+
          }
          print("12");
          print("the  ${image_urls.length}");
          print("the user ${user_provider.user.id}");
 
-         /// creating the product class
+         /// creating the Product class
          Product product = Product(name: name,
              description: description,
              quantity: quantity,
@@ -80,8 +85,8 @@ class Admin_services{
          );
 
 
-         /// The product data should be imported to the database
-         /// adding product
+         /// The Product data should be imported to the database
+         /// adding Product
          http.Response response = await http.post(
            Uri.parse("${Custom_text.url}/admin/add_product"),
            headers: {"Content-Type": "application/json"},
@@ -119,7 +124,7 @@ class Admin_services{
        );
 
        print(response.body);
-       print(response.body.length);
+       print("the images are ${response.body.length}");
 
        final List<dynamic> productList = jsonDecode(response.body)['products'];
        print(productList.length);
@@ -164,7 +169,7 @@ class Admin_services{
        if (response.statusCode == 200) {
 
          http_error_handling(res: response, context: context,on_success: (){
-           // Remove the deleted product from the list in the controller
+           // Remove the deleted Product from the list in the controller
            adminController.myProducts!.removeWhere((product) => product.id == id);
          Device_util.showSnackbar(context, "Deleted Successfully");
          });
@@ -175,7 +180,7 @@ class Admin_services{
      }
    }
 
-/// completion of delete product
+/// completion of delete Product
 
 
 

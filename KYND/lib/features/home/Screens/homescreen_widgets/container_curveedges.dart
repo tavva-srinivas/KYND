@@ -20,9 +20,9 @@ class primarycolor_container_with_curvededges extends StatelessWidget {
             child: Stack(
               children: [
                 // for styling in the right of the rigth of home app
-                Positioned(top:-150,right:-250,child: Custom_container(width: 400,height: 400,radius: 400, background_color: Colors.white.withOpacity(0.1))),
+                Positioned(top:50,right:-55,child: Custom_container(width: 300,height: 300,radius: 300, background_color: Colors.white.withOpacity(0.1))),
                 // we will get an error i we did not use Sized box be careful ---> size.isfinite : is not true  in stack
-                Positioned(top:100,right:-300,child: Custom_container(width: 400,height: 400,radius: 400, background_color: Colors.white.withOpacity(0.1))),
+                Positioned(top:100,right:-55,child: Custom_container(width: 250,height: 250,radius: 250, background_color: Colors.white.withOpacity(0.1))),
 
                 child
               ],

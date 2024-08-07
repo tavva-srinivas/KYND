@@ -7,6 +7,8 @@ import 'package:kynd/utils/theme/helper_to_overall_theme/outlined_button_theme.d
 import 'package:kynd/utils/theme/helper_to_overall_theme/text_theme.dart';
 import 'package:kynd/utils/theme/helper_to_overall_theme/textform_field_theme.dart';
 
+import 'helper_to_overall_theme/bottom_nav_theme.dart';
+
 class Custom_App_Theme{
 
   // ""_"" indicates that it is a private constructor which cannot be instantiated outside the library(overall_theme.dart)
@@ -29,6 +31,7 @@ class Custom_App_Theme{
     bottomSheetTheme: Custom_bottom_theme.light_bottom_sheet,
     checkboxTheme: Custom_checkbox_theme.light_checkbox,
     appBarTheme: Custom_app_bar_theme.light_app_bar,
+    bottomNavigationBarTheme: Custom_bottomNav_theme.light,
 
   );
   static ThemeData dark_theme  = ThemeData(
@@ -45,5 +48,6 @@ class Custom_App_Theme{
     bottomSheetTheme: Custom_bottom_theme.dark_bottom_sheet,
     checkboxTheme: Custom_checkbox_theme.dark_checkbox,
     appBarTheme: Custom_app_bar_theme.dark_app_bar,
+    bottomNavigationBarTheme: Custom_bottomNav_theme.dark,
   );
 }

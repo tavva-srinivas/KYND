@@ -31,16 +31,16 @@ dependencies:
   # date formating and all
   intl: ^0.19.0
   # prints beautiful logs
-  logger: ^2.2.0
+  logger: ^2.3.0
   # redirect users to external web page
-  url_launcher: ^6.2.5
+  url_launcher: ^6.3.0
   # animated page movements
   smooth_page_indicator: ^1.1.0
   # svg images
   flutter_svg: ^2.0.10+1
   # saving ofline
-  shared_preferences: ^2.2.2
-#  #To product user ofline
+  shared_preferences: ^2.2.3
+#  #To Product user ofline
 #  provider: ^6.1.2
   # carousel slider to display images
   carousel_slider: ^4.2.1
@@ -49,11 +49,11 @@ dependencies:
    # for getting the dotted line to paste photo in add products
   dotted_border: ^2.1.0
   # for selecting file in admin
-  file_picker: ^8.0.1
+  file_picker: ^8.0.5
   # for cloudinary used for images and media for app; (beter than mongodb for files)
   cloudinary_public: ^0.23.1
   # for lottie animations loading screen_brightness:
-  lottie: ^3.1.0
+  lottie: ^3.1.2
   # for showing read more option
   readmore: ^3.0.0
 
@@ -65,16 +65,20 @@ dependencies:
   #for maps-----------------
   google_maps_flutter: ^2.7.0
   # for location
-  location: ^6.0.2
+#  location: ^6.0.2
   geocoding: ^3.0.0
+#  instead of above both packages the geolocator does the both with higher accuracy
+  geolocator: ^12.0.0
 
   # Icons
   iconsax: ^0.0.8
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.8
 
 
   # State data_management:
   get: ^4.6.6
+
+  sliver_tools: ^0.2.12
 
 dev_dependencies:
   flutter_test:
@@ -110,15 +114,15 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-         - asset: assets/fonts/Poppins-Bold.ttf
-           weight: 700
-         - asset: assets/fonts/Poppins-SemiBold.ttf
-           weight: 600
-         - asset: assets/fonts/Poppins-Medium.ttf
-           weight: 400
-         - asset: assets/fonts/Poppins-Light.ttf
-           weight: 300
-         - asset: assets/fonts/Poppins-ExtraLight.ttf
-           weight: 200
-  
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500  # Adjusted weight to 500 if you are using the standard Medium weight font file
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-ExtraLight.ttf
+          weight: 200
+
   

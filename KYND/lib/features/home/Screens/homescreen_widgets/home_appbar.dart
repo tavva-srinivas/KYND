@@ -12,6 +12,8 @@ class home_appbar extends StatelessWidget {
   final Color subHead_color;
   final Color icon_color;
   final List<Widget> icons;
+  final String heading;
+  final String sub_heading ;
   final Color? icon_backgrund;
 
   const home_appbar({
@@ -19,7 +21,10 @@ class home_appbar extends StatelessWidget {
     this.heading_color = Colors.white,
     this.subHead_color = Custom_colors.grey,
      this.icon_color = Colors.white,
+     required this.sub_heading,
+    required this.heading,
     this.icon_backgrund,
+
     this.icons = const [],
   }) : super(key: key);
 
@@ -31,11 +36,14 @@ class home_appbar extends StatelessWidget {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Moghalrajpuram",style: Theme.of(context).textTheme.headlineMedium?.apply(
-              color: heading_color
+          Text(heading,style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+              color: heading_color,
+              fontWeight: FontWeight.w600
           )),
-          Text("Suryaraopet Vijayawada",style: Theme.of(context).textTheme.bodyMedium?.apply(
-              color: subHead_color
+          Text(sub_heading,style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: subHead_color,
+             fontWeight: FontWeight.w400,
+            fontSize: 13
           ),)
         ],
       ),

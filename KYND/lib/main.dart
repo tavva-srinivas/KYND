@@ -4,23 +4,25 @@ import 'package:kynd/utils/devices_utils/device_util.dart';
 import 'app.dart';
 
 void main() {
+  // Ensure initialization
+  WidgetsFlutterBinding.ensureInitialized();
 
-  // add widget binding
-  // init local storage
-  // await native splash
-  // initiate firebase
-  // initialise authentication
-
-  // WidgetsFlutterBinding.ensureInitialized();
-
-   // enter full screen
+  // Set status bar color and enable full screen
   Device_util.set_status_bar_color(Colors.white);
   Device_util.set_full_screen(true);
-  // fixing orientation; we face glitches in orientation( it is a futre object )so we can run app once orientation is done
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
 
-  runApp(const MyApp());
+  // Set preferred orientations
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]).then((value){
+
+    // Run the app (to avoid any weird glitches)
+    runApp(const MyApp());
+  });
+
 }
+
 
 // class MyApp extends StatefulWidget {
 //   const MyApp({super.key});

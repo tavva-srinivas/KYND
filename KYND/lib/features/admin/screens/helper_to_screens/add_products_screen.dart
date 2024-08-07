@@ -16,7 +16,7 @@ import '../../services/admin_services.dart';
 
 
 class Add_product_screen extends StatefulWidget {
-  static const String route_name = '/add-product';
+  static const String route_name = '/add-Product';
   const Add_product_screen({super.key});
 
   @override
@@ -81,51 +81,74 @@ class _Add_product_screenState extends State<Add_product_screen> {
                 SizedBox(height: 16,),
 
                 /// Dotted border to take the product
-                Obx(() => dropdownController.selectedImages.isNotEmpty ?
-                CarouselSlider(
+                Obx(() => dropdownController.selectedImages.isNotEmpty
+                    ? CarouselSlider(
                   items: dropdownController.selectedImages.map((image) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Image.file(image);
-                      },
+                    return Stack(
+                      children: [
+                        Positioned.fill(
+                          child: Image.file(image, fit: BoxFit.cover),
+                        ),
+                        Positioned(
+                          top: 8.0,
+                          right: 8.0,
+                          child: GestureDetector(
+                            onTap: () {
+                              dropdownController.selectedImages.remove(image);
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(2.0),
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(Icons.close, size: 16.0, color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
                     );
                   }).toList(),
                   options: CarouselOptions(
                     aspectRatio: 16 / 9,
-                    viewportFraction: 0.8,
+                    viewportFraction: 1,
                     initialPage: 0,
-                    enableInfiniteScroll: true,
+                    enableInfiniteScroll: false,
                     reverse: false,
-                    autoPlay: false, // Disable auto-play
+                    autoPlay: false,
                     scrollDirection: Axis.horizontal,
                   ),
-                ) :  GestureDetector(
+                )
+                    : GestureDetector(
                   onTap: () => select_product_images(),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric( vertical:16),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                     child: DottedBorder(
-                        borderType: BorderType.RRect,
-                        color: Custom_colors.dark_grey,
-                        radius: Radius.circular(12),
-                        dashPattern: [8,4],
-                        child: Container(
-                          width: double.infinity,
-                          height: Device_util.get_height(context)*0.2,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Icon(Icons.folder_open,size: 32,),
-                              SizedBox(height: 15),
-                              Text("Select Product Images" , style: Theme.of(context).textTheme.bodyMedium,)
-                            ],
-                          ),)),
-                  )
+                      borderType: BorderType.RRect,
+                      color: Custom_colors.dark_grey,
+                      radius: Radius.circular(12),
+                      dashPattern: [8, 4],
+                      child: Container(
+                        width: double.infinity,
+                        height: Device_util.get_height(context) * 0.2,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(Icons.folder_open, size: 32),
+                            SizedBox(height: 15),
+                            Text("Select Product Images", style: Theme.of(context).textTheme.bodyMedium),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 )
                 ),
+
 
                 SizedBox(height: 16),
 
@@ -222,7 +245,7 @@ class _Add_product_screenState extends State<Add_product_screen> {
                           hintText: "Serving",
                           hintStyle: Theme.of(context).textTheme.bodyMedium,
                         ),
-                      validator: (stringText) => validator(stringText!,"product Serving") ,
+                      validator: (stringText) => validator(stringText!,"Product Serving") ,
                     ),
                   ),
                 ),
@@ -240,7 +263,7 @@ class _Add_product_screenState extends State<Add_product_screen> {
                               hintStyle: Theme.of(context).textTheme.bodyMedium,
                             ),
                             controller: carbs_controller,
-                            validator: (stringText) => validator(stringText!,"product Carbs") ,
+                            validator: (stringText) => validator(stringText!,"Product Carbs") ,
                           )),
                       const SizedBox(width: 12),
                       Expanded(
@@ -250,7 +273,7 @@ class _Add_product_screenState extends State<Add_product_screen> {
                               hintStyle: Theme.of(context).textTheme.bodyMedium,
                             ),
                             controller: protein_controller,
-                            validator: (stringText) => validator(stringText!,"product Protein") ,
+                            validator: (stringText) => validator(stringText!,"Product Protein") ,
                           )),
                     ],),
                 ),
@@ -269,7 +292,7 @@ class _Add_product_screenState extends State<Add_product_screen> {
                               hintStyle: Theme.of(context).textTheme.bodyMedium,
                             ),
                             controller: cal_controller,
-                            validator: (stringText) => validator(stringText!,"product Calcium") ,
+                            validator: (stringText) => validator(stringText!,"Product Calcium") ,
                           )),
                       const SizedBox(width: 12),
                       Expanded(
@@ -279,7 +302,7 @@ class _Add_product_screenState extends State<Add_product_screen> {
                               hintStyle: Theme.of(context).textTheme.bodyMedium,
                             ),
                             controller: fibre_controller,
-                            validator: (stringText) => validator(stringText!,"product fibre") ,
+                            validator: (stringText) => validator(stringText!,"Product fibre") ,
                           )),
                     ],),
                 ),

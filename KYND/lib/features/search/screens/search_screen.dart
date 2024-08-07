@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:kynd/features/search/models/product_search_summary.dart';
 import 'package:kynd/features/search/screens/searched_screen.dart';
@@ -78,6 +78,7 @@ class _Search_screenState extends State<Search_screen> {
               _onSearchChanged(searchStr);
             },
             decoration: InputDecoration(
+              labelStyle: Theme.of(context).textTheme.titleMedium,
               hintText: 'Search',
               hintStyle: Theme.of(context).textTheme.bodyMedium,
               prefixIcon: Icon(Icons.search, color: Colors.indigoAccent),
@@ -119,6 +120,8 @@ class _Search_screenState extends State<Search_screen> {
                   leading: Icon(Icons.arrow_drop_up_sharp, color: Colors.grey),  // Use Icons here
                   onTap: () {
                     // Handle search item tap
+                    print("hello");
+                    Navigator.pushNamed(context, Searched_screen.route_name,arguments: _searchController.text.toString());
                   },
                 );
               },

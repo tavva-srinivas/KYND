@@ -79,7 +79,6 @@ class _SignUp_screenState extends State<SignUp_screen> {
 
                 if(_signup_formkey.currentState!.validate()){
                Auth_service.signup_user(context: context, first_name: _firstname_controller.text, last_name: _secondname_controller.text, phone_number: _phonenumber_controller.text, address: _address_controller.text, email: _email_controller.text, password: _password_controller.text);
-                Navigator.pushNamed(context, Onboarding_screen.route_name);
               }
          },
                 child: const Text("Create Account"),),),

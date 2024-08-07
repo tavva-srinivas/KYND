@@ -115,7 +115,7 @@ class Admin_products extends StatelessWidget {
         }
       }),
 
-      /// floating button --> add product
+      /// floating button --> add Product
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, Add_product_screen.route_name);
@@ -127,7 +127,7 @@ class Admin_products extends StatelessWidget {
         shape: CircleBorder(),
         backgroundColor: Colors.indigoAccent,
         // on long press we will get the functionality
-        tooltip: "Add a product",
+        tooltip: "Add a Product",
       ),
     );
   }
